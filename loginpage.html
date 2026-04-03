@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="loginpage.css" />
+    <title>ログイン画面</title>
+</head>
+<body>
+    <div class="box">
+        <br />
+        <div class="kanri">管理ページ</div>
+        <input type="text" placeholder="ログインID" class="input1">
+        <input type="password" placeholder="パスワード" class="input2">
+        <input type="checkbox" id="saveId" class="checkbox">
+        <label for="saveId">IDを保存する</label>
+        <button class="login">ログイン</button>
+    </div>
+    <script>const GAS_URL = "https://script.google.com/macros/s/AKfycbxB1CUCd6NvOhokm332YazTtmkATk76RX-5G9pEDXZdcI8gfUG1PrfW_QITCQXio3ohNw/exec";
+
+document.querySelector(".login").addEventListener("click", async () => {
+    const id = document.querySelector(".input1").value;
+    const pass = document.querySelector(".input2").value;
+
+    const params = new URLSearchParams();
+    params.append("action", "login");
+    params.append("id", id);
+    params.append("pass", pass);
+
+    const res = await fetch(GAS_URL, { method: "POST", body: params });
+    const data = await res.json();
+
+    if (data.ok) {
+        location.href = "kanripage.html";
+    } else {
+        alert("ログイン失敗");
+    }
+});</script>
+</body>
+</html>

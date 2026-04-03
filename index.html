@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="index.css" />
+    <title>金沢大学体操部</title>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <div class="name"><b>K U G C</b></div>
+            <div class="japanname">Kanazawa University Gymnastics Club</div>
+        </div>
+
+        <div class="login">
+            <a href="loginpage.html">管理者用ログイン</a>
+        </div>
+    </header>
+
+    <div class="schedule">〇月の練習予定</div>
+
+    <!-- カレンダー画像が入る場所 -->
+    <div class="box">
+        <!-- 後で JS で画像を入れる -->
+        <img id="calendarImage" alt="カレンダー画像" />
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="blog"><b>ブログ</b></div>
+    <div class="divider"></div>
+
+    <footer>
+        <div class="LINE"></div>
+        <div class="Instagram"></div>
+        <div class="X"></div>
+    </footer>
+    <script>const GAS_URL = "https://script.google.com/macros/s/AKfycbxB1CUCd6NvOhokm332YazTtmkATk76RX-5G9pEDXZdcI8gfUG1PrfW_QITCQXio3ohNw/exec";
+
+async function loadCounter() {
+    const res = await fetch(GAS_URL + "?action=countUp");
+    const data = await res.json();
+    document.getElementById("counter").textContent = "アクセス数：" + data.count;
+}
+
+async function loadLatestBlogs() {
+    const res = await fetch(GAS_URL + "?action=getLatestBlogs");
+    const data = await res.json();
+    const list = document.getElementById("blogList");
+    list.innerHTML = "";
+
+    data.blogs.forEach(b => {
+        const div = document.createElement("div");
+        div.innerHTML = `
+            <div class="blog-title">${b.title}</div>
+            <div class="blog-date">${b.date}</div>
+        `;
+        list.appendChild(div);
+    });
+}
+
+loadCounter();
+loadLatestBlogs();</script>
+</body>
+</html>

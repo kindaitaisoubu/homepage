@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="index.css" />
+    <title>管理ページ</title>
+</head>
+<body>
+    <header>
+        <div class="name"><b>K U G C</b></div>
+        <div class="japanname">Kanazawa University Gymnastics Club</div>
+        <div class="login"><a href="loginpage.html">管理者用ログイン</a></div>
+    </header>
+    <div class="schedule">〇月の練習予定</div>
+    <div class="box"></div>
+    <br />
+    <br />
+    <hr size="4" />
+    <div class="blog"><b>ブログ</b></div>
+    <hr size="4" />
+    <footer>
+        <div class="LINE"></div>
+        <div class="Instagram"></div>
+        <div class="X"></div>
+    </footer>
+    <script>const GAS_URL = "https://script.google.com/macros/s/AKfycbxB1CUCd6NvOhokm332YazTtmkATk76RX-5G9pEDXZdcI8gfUG1PrfW_QITCQXio3ohNw/exec";
+
+document.getElementById("postBlogBtn").addEventListener("click", async () => {
+    const title = document.getElementById("blogTitle").value;
+    const content = document.getElementById("blogContent").value;
+
+    const params = new URLSearchParams();
+    params.append("action", "postBlog");
+    params.append("title", title);
+    params.append("content", content);
+
+    const res = await fetch(GAS_URL, { method: "POST", body: params });
+    const data = await res.json();
+
+    if (data.ok) {
+        alert("投稿しました");
+        document.getElementById("blogTitle").value = "";
+        document.getElementById("blogContent").value = "";
+    } else {
+        alert("投稿失敗");
+    }
+});</script>
+</body>
+</html>
