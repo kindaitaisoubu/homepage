@@ -17,7 +17,7 @@
     </div>
 
     <script>
-        // ★ 新しい GAS Web アプリ URL に更新
+        // ★ 新しい GAS Web アプリ URL
         const GAS_URL = "https://script.google.com/macros/s/AKfycbzP4o2DaOPBYfUrNh6U7ziNLuA1Eo-1Mpi9o45KmxkArPxQxgYtChArtzvPJE1axhv97A/exec";
 
         document.querySelector(".login").addEventListener("click", async () => {
@@ -44,7 +44,8 @@
                 if (data.ok) {
                     location.href = "kanripage.html";
                 } else {
-                    alert("ログイン失敗");
+                    // ★ ここで理由付きエラーを表示
+                    alert(data.message || "ログイン失敗");
                 }
 
             } catch (e) {
