@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="ja">
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="loginpage.css" />
@@ -16,25 +15,43 @@
         <label for="saveId">IDを保存する</label>
         <button class="login">ログイン</button>
     </div>
-    <script>const GAS_URL = "https://script.google.com/macros/s/AKfycbxB1CUCd6NvOhokm332YazTtmkATk76RX-5G9pEDXZdcI8gfUG1PrfW_QITCQXio3ohNw/exec";
 
-document.querySelector(".login").addEventListener("click", async () => {
-    const id = document.querySelector(".input1").value;
-    const pass = document.querySelector(".input2").value;
+    <script>
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbyl-i8x8GClQfh4g_TUK9eATrle5SJb1O0NfTxMZM1EH9TCfAvgYN_Tpous1nDsRHpXSQ/exec";
 
-    const params = new URLSearchParams();
-    params.append("action", "login");
-    params.append("id", id);
-    params.append("pass", pass);
+        document.querySelector(".login").addEventListener("click", async () => {
 
-    const res = await fetch(GAS_URL, { method: "POST", body: params });
-    const data = await res.json();
+            const id = document.querySelector(".input1").value;
+            const pass = document.querySelector(".input2").value;
 
-    if (data.ok) {
-        location.href = "kanripage.html";
-    } else {
-        alert("ログイン失敗");
-    }
-});</script>
+            const params = new URLSearchParams();
+            params.append("action", "login");
+            params.append("id", id);
+            params.append("pass", pass);
+
+            try {
+                const res = await fetch(GAS_URL, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "text/plain"
+                    },
+                    body: params
+                });
+
+                const data = JSON.parse(await res.text());
+
+                if (data.ok) {
+                    location.href = "kanripage.html";
+                } else {
+                    alert("ログイン失敗");
+                }
+
+            } catch (e) {
+                console.error(e);
+                alert("通信エラー");
+            }
+        });
+    </script>
+
 </body>
 </html>
