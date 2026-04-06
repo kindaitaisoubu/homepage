@@ -17,7 +17,8 @@
     </div>
 
     <script>
-        const GAS_URL = "https://script.google.com/macros/s/AKfycbyl-i8x8GClQfh4g_TUK9eATrle5SJb1O0NfTxMZM1EH9TCfAvgYN_Tpous1nDsRHpXSQ/exec";
+        // ★ 新しい GAS Web アプリ URL に更新済み
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbwurrgZhJ6dMJW86F76lA2zNP10sSjEqcmclEfeqAcIBTIiQl73kOs0vpwXIQm8MZbsGA/exec";
 
         document.querySelector(".login").addEventListener("click", async () => {
 
@@ -38,6 +39,7 @@
                     body: params
                 });
 
+                // GAS は JSON を text として返すので text() → JSON.parse()
                 const data = JSON.parse(await res.text());
 
                 if (data.ok) {
