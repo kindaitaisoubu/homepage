@@ -17,13 +17,13 @@
     </div>
 
     <script>
-        // ★ 新しい GAS Web アプリ URL に更新済み
-        const GAS_URL = "https://script.google.com/macros/s/AKfycbwurrgZhJ6dMJW86F76lA2zNP10sSjEqcmclEfeqAcIBTIiQl73kOs0vpwXIQm8MZbsGA/exec";
+        // ★ 新しい GAS Web アプリ URL に更新
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbzP4o2DaOPBYfUrNh6U7ziNLuA1Eo-1Mpi9o45KmxkArPxQxgYtChArtzvPJE1axhv97A/exec";
 
         document.querySelector(".login").addEventListener("click", async () => {
 
-            const id = document.querySelector(".input1").value;
-            const pass = document.querySelector(".input2").value;
+            const id = document.querySelector(".input1").value.trim();
+            const pass = document.querySelector(".input2").value.trim();
 
             const params = new URLSearchParams();
             params.append("action", "login");
@@ -39,7 +39,6 @@
                     body: params
                 });
 
-                // GAS は JSON を text として返すので text() → JSON.parse()
                 const data = JSON.parse(await res.text());
 
                 if (data.ok) {
