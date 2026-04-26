@@ -66,10 +66,9 @@ header {
 }
 
 /* カレンダー枠 */
-.box {
+.box img{
     width: 707px;
     height: 500px;
-    border: 2px solid black;
     margin: 20px auto;
     display: flex;
     justify-content: center;
@@ -88,4 +87,160 @@ header {
 .blog {
     font-size: 30px;
     margin-left: 20px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.LINE, .Instagram, .X {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+}
+
+footer div img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* 全体のリセット */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* ヘッダーとフッター */
+header, footer {
+    background-color: #75c1fa;
+    padding: 20px;
+}
+
+/* ヘッダー内の配置 */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+/* 左側（KUGC + 日本語名） */
+.header-left {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    line-height: 1;
+}
+
+.name {
+    font-size: 100px;
+    margin: 0;
+    line-height: 0.8;
+}
+
+.japanname {
+    font-size: 30px;
+    margin-top: 20px;
+    line-height: 1;
+}
+
+.login {
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+/* スケジュールタイトル */
+.schedule {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* カレンダー画像 */
+.box img {
+    width: 100%;
+    max-width: 707px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+/* 区切り線 */
+.divider {
+    width: 100%;
+    height: 4px;
+    background-color: black;
+    margin: 30px 0;
+}
+
+/* ブログタイトル */
+.blog {
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+/* フッターのアイコン */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.LINE, .Instagram, .X {
+    width: 80px;
+    height: 80px;
+    margin: 20px;
+}
+
+footer div img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ===========================
+   📱 スマホ対応（レスポンシブ）
+   =========================== */
+@media (max-width: 600px) {
+
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .header-left {
+        margin-left: 0;
+    }
+
+    .name {
+        font-size: 60px;
+    }
+
+    .japanname {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+    .login {
+        margin: 10px 0 0 0;
+        font-size: 18px;
+    }
+
+    .schedule {
+        font-size: 28px;
+    }
+
+    .blog {
+        font-size: 24px;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .LINE, .Instagram, .X {
+        width: 60px;
+        height: 60px;
+    }
 }

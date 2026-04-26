@@ -12,54 +12,27 @@
             <div class="japanname">Kanazawa University Gymnastics Club</div>
         </div>
 
-        <div class="login">
-            <a href="loginpage.html">管理者用ログイン</a>
-        </div>
     </header>
-
-    <div class="schedule">〇月の練習予定</div>
 
     <!-- カレンダー画像が入る場所 -->
     <div class="box">
         <!-- 後で JS で画像を入れる -->
-        <img id="calendarImage" alt="カレンダー画像" />
+        <img src="C:\Users\rainb\OneDrive\Desktop\体操部\4月予定.jpg" id="calendarImage" alt="カレンダー画像" />
     </div>
 
     <div class="divider"></div>
 
     <div class="blog"><b>ブログ</b></div>
     <div class="divider"></div>
+    <div style="font-size: 100px;" position:absokute; left:50%; >Coming Soon...<br /><br />
+    
+    
+    </div>
 
     <footer>
-        <div class="LINE"></div>
-        <div class="Instagram"></div>
-        <div class="X"></div>
+        <div class="LINE"><a href="https://line.me/R/ti/p/@173dghee"><img src="LINE.png" /></a></div>
+        <div class="Instagram"><a href="https://www.instagram.com/kindaitaisou?igsh=MTN6djlkdGd4NzJkYw=="><img src="Instagram.png" /></a></div>
+        <div class="X"><a href="https://x.com/kindaitaisoubu"><img src="X.png" /></a></div>
     </footer>
-    <script>const GAS_URL = "https://script.google.com/macros/s/AKfycbzP4o2DaOPBYfUrNh6U7ziNLuA1Eo-1Mpi9o45KmxkArPxQxgYtChArtzvPJE1axhv97A/exec";
-
-async function loadCounter() {
-    const res = await fetch(GAS_URL + "?action=countUp");
-    const data = await res.json();
-    document.getElementById("counter").textContent = "アクセス数：" + data.count;
-}
-
-async function loadLatestBlogs() {
-    const res = await fetch(GAS_URL + "?action=getLatestBlogs");
-    const data = await res.json();
-    const list = document.getElementById("blogList");
-    list.innerHTML = "";
-
-    data.blogs.forEach(b => {
-        const div = document.createElement("div");
-        div.innerHTML = `
-            <div class="blog-title">${b.title}</div>
-            <div class="blog-date">${b.date}</div>
-        `;
-        list.appendChild(div);
-    });
-}
-
-loadCounter();
-loadLatestBlogs();</script>
 </body>
 </html>
