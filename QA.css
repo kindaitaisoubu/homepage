@@ -1,20 +1,70 @@
-﻿/* FAQ（アコーディオン） */
-.faq-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
+﻿/* ============================
+   全体リセット & レイアウト基盤
+============================ */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* footer を下に押すために必要 */
 }
-h1,h4{
-    text-align:center;
+
+/* ★ 追加：footer を下に押すための flex レイアウト */
+body {
+    display: flex;
+    flex-direction: column;
 }
+
+/* ★ 追加：main が余白を吸う（footer の下の空白を消す） */
+main {
+    flex: 1;
+}
+
+a:visited {
+    color: blue;
+}
+
+/* ============================
+   ヘッダー
+============================ */
+header {
+    background-color: #75c1fa;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.name {
+    font-size: 100px;
+    margin: 0;
+    line-height: 0.8;
+}
+
+.japanname {
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.QA, .return {
+    font-size: 40px;
+    margin-right: 20px;
+}
+
 /* ============================
    FAQ（アコーディオン）
 ============================ */
+h1, h4 {
+    text-align: center;
+}
+
 .faq-container {
     max-width: 800px;
-    /* ★ 謎の空白の原因だった margin-top を削除 */
     margin: 0 auto;
-    /* ★ 代わりにここで余白を作る（見た目は同じ） */
     padding: 40px 20px 0 20px;
 }
 
@@ -39,9 +89,6 @@ h1,h4{
     .faq-question::after {
         content: "▼";
         font-size: 1.2rem;
-        display: inline-block;
-        line-height: 1;
-        vertical-align: middle;
         margin-left: 10px;
         transition: transform 0.3s ease;
     }
@@ -70,9 +117,70 @@ h1,h4{
     }
 
 /* ============================
-   フッター
+   フッター（必要なときだけ下固定）
 ============================ */
 footer {
-    text-align: center;
-    font-size: 0.9rem;
+    background-color: #75c1fa;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.LINE, .Instagram, .X {
+    width: 80px;
+    height: 80px;
+    margin: 20px;
+}
+
+footer div img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ============================
+   スマホ対応
+============================ */
+@media (max-width: 600px) {
+
+    .name {
+        font-size: 60px;
+    }
+
+    .japanname {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+    .QA, .return {
+        font-size: 16px;
+        margin-right: 10px;
+    }
+
+    .blog {
+        font-size: 22px;
+    }
+
+    .comingsoon {
+        font-size: 60px;
+    }
+
+    .LINE, .Instagram, .X {
+        width: 60px;
+        height: 60px;
+        margin: 10px;
+    }
+}
+
+/* ============================
+   スマホで縦が短い時だけ footer を下固定
+============================ */
+@media (max-height: 700px) {
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
 }
