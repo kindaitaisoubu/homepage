@@ -1,0 +1,147 @@
+﻿/* ============================
+   全体リセット & レイアウト基盤
+============================ */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* footer を下に押すために必要 */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* 縦に並べる */
+    font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+}
+
+/* ============================
+   ヘッダー
+============================ */
+header {
+    background-color: #75c1fa;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.name {
+    font-size: 100px;
+    margin: 0;
+    line-height: 0.8;
+}
+
+.japanname {
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.QA {
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+    .QA a {
+        color: black;
+        text-decoration: none;
+    }
+
+/* ============================
+   メイン（ここが超重要）
+============================ */
+main {
+    flex: 1; /* ← footer を下に押す */
+    padding-bottom: 40px; /* スマホでの余白調整 */
+}
+
+/* カレンダー画像 */
+.box img {
+    width: 100%;
+    max-width: 707px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+/* 区切り線 */
+.divider {
+    width: 100%;
+    height: 4px;
+    background-color: black;
+    margin: 30px 0;
+}
+
+/* ブログタイトル */
+.blog {
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+/* Coming Soon */
+.comingsoon {
+    font-size: 100px;
+    text-align: center;
+    margin: 40px 0;
+}
+
+/* ============================
+   フッター（必要なときだけ下固定）
+============================ */
+footer {
+    background-color: #75c1fa;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.LINE, .Instagram, .X {
+    width: 80px;
+    height: 80px;
+    margin: 20px;
+}
+
+footer div img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ============================
+   スマホ対応
+============================ */
+@media (max-width: 600px) {
+
+    .name {
+        font-size: 60px;
+    }
+
+    .japanname {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+    .QA {
+        font-size: 16px;
+        margin-right: 10px;
+    }
+
+    .blog {
+        font-size: 22px;
+    }
+
+    .comingsoon {
+        font-size: 60px;
+    }
+
+    .LINE, .Instagram, .X {
+        width: 60px;
+        height: 60px;
+        margin: 10px;
+    }
+}
