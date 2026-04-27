@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>体操部 よくある質問</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="QA.css" />
+</head>
+
+<body>
+
+    <!-- ===== ヘッダー ===== -->
+    <header>
+        <div class="header-left">
+            <div class="name"><b>K U G C</b></div>
+            <div class="japanname">Kanazawa University Gymnastics Club</div>
+        </div>
+        <div class="return">
+            <a href="index.html">戻る</a>
+        </div>
+    </header>
+
+    <!-- ===== メイン ===== -->
+    <main>
+
+        <section class="faq-container">
+            <h1>よくある質問</h1>
+            <h4>ここにない質問はLINEやDMで受け付けています！お気軽にご連絡ください。</h4>
+
+            <div class="faq-item">
+                <button class="faq-question">Q1. 活動日はいつですか？</button>
+                <div class="faq-answer">
+                    <p>毎週 <strong>月・水の18:30〜21:00</strong> に活動しています。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Q2. 初心者でも参加できますか？</button>
+                <div class="faq-answer">
+                    <p><strong>大歓迎です。</strong> 大学から始めた人も多いので安心して来てください。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Q3. 兼部はできますか？</button>
+                <div class="faq-answer">
+                    <p><strong>可能です。</strong> 実際に兼部している部員もいます。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Q4. 持ち物は何が必要ですか？</button>
+                <div class="faq-answer">
+                    <p>水分だけあればOKです。服装は <strong>動きやすい格好</strong> で来てください。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Q5. 費用はかかりますか？</button>
+                <div class="faq-answer">
+                    <p><strong>基本的に費用はかかりません。</strong> 必要な道具は部で用意しています。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Q6. どんな雰囲気の部活ですか？</button>
+                <div class="faq-answer">
+                    <p>楽しく、自分のペースで取り組める雰囲気です。初心者も経験者も一緒に楽しめます。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Q7. 見学や体験はできますか？</button>
+                <div class="faq-answer">
+                    <p>いつでも可能です。気軽にLINEやDMにご連絡ください。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Q8. ケガが心配なのですが大丈夫ですか？</button>
+                <div class="faq-answer">
+                    <p>経験のある先生がいるので、技のポイントや注意点をその場でしっかり伝えてくれます。無理のない範囲で進めるので、初めてでも安全に取り組めます。</p>
+                </div>
+            </div>
+            <br /><br />
+        </section>
+
+    </main><br /><br />
+    <footer>
+        <div class="LINE"><a href="https://line.me/R/ti/p/@173dghee"><img src="LINE.png" /></a></div>
+        <div class="Instagram"><a href="https://www.instagram.com/kindaitaisou?igsh=MTN6djlkdGd4NzJkYw=="><img src="Instagram.png" /></a></div>
+        <div class="X"><a href="https://x.com/kindaitaisoubu"><img src="X.png" /></a></div>
+    </footer>
+
+    <!-- ===== アコーディオンJS ===== -->
+    <script>
+        document.querySelectorAll(".faq-question").forEach(button => {
+            button.addEventListener("click", () => {
+
+                const answer = button.nextElementSibling;
+
+                button.classList.toggle("active");
+
+                if (answer.style.height && answer.style.height !== "0px") {
+                    answer.style.height = answer.scrollHeight + "px";
+                    requestAnimationFrame(() => {
+                        answer.style.height = "0px";
+                    });
+                } else {
+                    answer.style.height = answer.scrollHeight + "px";
+
+                    answer.addEventListener("transitionend", function handler() {
+                        if (button.classList.contains("active")) {
+                            answer.style.height = "auto";
+                        }
+                        answer.removeEventListener("transitionend", handler);
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
