@@ -12,9 +12,11 @@ body {
     flex-direction: column; /* 縦に並べる */
     font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
 }
+
 a:visited {
     color: blue;
 }
+
 /* ============================
    ヘッダー
 ============================ */
@@ -43,16 +45,16 @@ header {
     margin-top: 20px;
 }
 
-.QA ,.return{
+.QA, .return {
     font-size: 40px;
     margin-right: 20px;
 }
 
 /* ============================
-   メイン（ここが超重要）
+   メイン
 ============================ */
 main {
-    flex: 1; /* ← footer を下に押す */
+    flex: 1; /* footer を下に押す */
     padding-bottom: 40px; /* スマホでの余白調整 */
 }
 
@@ -87,7 +89,7 @@ main {
 }
 
 /* ============================
-   フッター（必要なときだけ下固定）
+   フッター
 ============================ */
 footer {
     background-color: #75c1fa;
@@ -110,10 +112,161 @@ footer div img {
 }
 
 /* ============================
+   ブログ記事
+============================ */
+.blog-post {
+    max-width: 720px;
+    margin: 32px auto;
+    padding: 0 20px;
+    font-family: "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif;
+    color: #333;
+    line-height: 2;
+    box-sizing: border-box;
+}
+
+.blog-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.blog-tag {
+    padding: 2px 12px;
+    background: #2b7bb9;
+    color: #fff;
+    border-radius: 999px;
+    font-weight: bold;
+}
+
+.blog-title {
+    margin: 12px 0 24px;
+    padding-bottom: 16px;
+    font-size: 1.9rem;
+    line-height: 1.4;
+    color: #1e3a5f;
+    border-bottom: 3px solid #2b7bb9;
+}
+
+.blog-post h2 {
+    margin: 40px 0 12px;
+    padding-left: 12px;
+    font-size: 1.25rem;
+    color: #2b7bb9;
+    border-left: 6px solid #75c1fa;
+}
+
+.blog-post p {
+    margin: 0 0 16px;
+}
+
+.blog-post mark {
+    background: linear-gradient(transparent 60%, #ffe0b8 60%);
+    font-weight: bold;
+}
+
+.blog-info {
+    margin: 16px 0;
+    padding: 16px 20px;
+    background: #eef7ff;
+    border-left: 4px solid #75c1fa;
+    border-radius: 12px;
+    font-weight: bold;
+    color: #2b7bb9;
+}
+
+.blog-cta {
+    margin: 40px 0;
+    padding: 28px 20px;
+    background: #eaf5ff;
+    border-top: 4px solid #f97316;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.blog-btn {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 14px 36px;
+    background: linear-gradient(90deg, #ff9f43, #f97316);
+    color: #fff !important;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+    .blog-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(249, 115, 22, 0.5);
+    }
+
+/* アコーディオン */
+.blog-acc {
+    margin: 16px 0;
+    background: #fff;
+    border: 1px solid #cfe9fd;
+    border-left: 6px solid #75c1fa;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+    .blog-acc summary {
+        position: relative;
+        padding: 14px 48px 14px 16px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #2b7bb9;
+        cursor: pointer;
+        list-style: none;
+        transition: background 0.2s;
+    }
+
+        .blog-acc summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .blog-acc summary:hover {
+            background: #eef7ff;
+        }
+
+        .blog-acc summary::after {
+            content: "+";
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            line-height: 1;
+            color: #f97316;
+        }
+
+    .blog-acc[open] summary::after {
+        content: "−";
+    }
+
+    .blog-acc[open] summary {
+        border-bottom: 1px solid #cfe9fd;
+    }
+
+.blog-acc-body {
+    padding: 16px 16px 4px;
+}
+
+    .blog-acc-body .blog-info {
+        margin: 0 0 12px;
+    }
+
+/* ============================
    スマホ対応
 ============================ */
 @media (max-width: 600px) {
 
+    /* サイト全体 */
     .name {
         font-size: 60px;
     }
@@ -140,5 +293,29 @@ footer div img {
         width: 60px;
         height: 60px;
         margin: 10px;
+    }
+
+    /* ブログ記事 */
+    .blog-post {
+        margin: 20px auto;
+        padding: 0 16px;
+    }
+
+    .blog-title {
+        font-size: 1.5rem;
+    }
+
+    .blog-post h2 {
+        font-size: 1.15rem;
+    }
+
+    .blog-cta {
+        padding: 24px 16px;
+    }
+
+    .blog-btn {
+        display: block;
+        padding: 14px 20px;
+        font-size: 1rem;
     }
 }
